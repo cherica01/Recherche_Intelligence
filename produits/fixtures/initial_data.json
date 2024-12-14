@@ -1,0 +1,7 @@
+[
+    {"model": "produits.produit", "pk": 1, "fields": {"nom": "Smartphone Galaxy X10", "description": "Smartphone dernière génération avec écran AMOLED de 6.5 pouces, 128 Go de stockage, 8 Go de RAM, et caméra 48 MP", "prix": 799.99}},
+    {"model": "produits.produit", "pk": 2, "fields": {"nom": "Casque Bluetooth SupraSound", "description": "Casque audio sans fil avec réduction de bruit active, autonomie de 30 heures, et design ergonomique.", "prix": 149.99}},
+    {"model": "produits.produit", "pk": 3, "fields": {"nom": "Montre connectée FitTrack Pro", "description": "Montre connectée étanche avec suivi du rythme cardiaque, compteur de pas, et notifications intelligentes", "prix": 90.00}},
+    {"model": "produits.produit", "pk": 4, "fields": {"nom": " PC Portable UltraBook 15", "description": "Ordinateur portable léger avec écran 15.6 pouces Full HD, processeur Intel Core i7, 16 Go de RAM, et SSD 512 Go.", "prix": 1140.00}},
+    {"model": "produits.produit", "pk": 5, "fields": {"nom": "Caméra Action GoPro Adventurer", "description": "Caméra d’action 4K avec stabilisation avancée, étanche jusqu’à 10 mètres, et Wi-Fi intégré.", "prix": 350.00}}
+]

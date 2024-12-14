@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-CHERICA</title>
+
+    <!-- Ajouter Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Header -->
+    <header class="bg-[#9B111E] text-white py-4">
+        <div class="container mx-auto flex items-center justify-between px-4">
+            <div class="flex-grow text-center">
+                <h1 class="text-3xl font-bold">Ma Boutique E-CHERICA</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6 flex flex-wrap lg:flex-nowrap gap-6">
+        <!-- Recherche et Liste des produits -->
+        <div class="w-full lg:w-3/4">
+            <!-- Champ de recherche -->
+            <div class="mb-6">
+                <form method="POST" class="flex items-center space-x-4">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <input type="text" name="mot_cle" placeholder="Rechercher un produit" 
+                        class="flex-grow border border-gray-300 rounded-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                        Chercher
+                    </button>
+                </form>
+                
+            </div>
+
+            <h1 class="text-4xl font-extrabold text-gray-800 mb-6 text-center">
+                Voici les produits, ce site est en collaboration avec GEMINI
+            </h1>
+
+            <!-- Conteneur des cartes -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {% for produit in produits %}
+                <!-- Carte produit -->
+                <div class="bg-white shadow-md rounded-lg overflow-hidden border border-gray-200">
+                    <div class="p-4">
+                        <h2 class="text-lg font-semibold text-gray-800">{{ produit.nom }}</h2>
+                        <p class="text-gray-600 mt-2">{{ produit.description }}</p>
+                        <p class="text-blue-500 font-bold mt-4">{{ produit.prix }} €</p>
+                    </div>
+                    <div class="p-4 border-t border-gray-300">
+                        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Voir le détail
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Résultats de la recherche -->
+        <div class="w-full lg:w-1/4 bg-white shadow-md rounded-lg p-6">
+            <h5 class="text-2xl font-bold text-gray-800 mb-4 text-center">
+                Résultats de la recherche
+            </h5>
+            {% if resultats %}
+            <ul class="list-disc pl-4 space-y-2">
+                {% for resultat in resultats %}
+                <li class="text-gray-700 font-medium">{{ resultat }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="text-gray-600 text-center mt-4">Aucun résultat trouvé pour ce mot-clé.</p>
+            {% endif %}
+        </div>
+        
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#9B111E] text-white py-8 mt-8">
+        <div class="container mx-auto text-center space-y-6">
+            <!-- Informations sur la boutique -->
+            <div>
+                <h3 class="text-xl font-bold">À propos de Ma Boutique E-CHERICA</h3>
+                <p class="text-gray-300 mt-2">
+                    Bienvenue chez E-CHERICA, votre boutique en ligne dédiée à des produits de qualité et un service exceptionnel. 
+                
+                </p>
+            </div>
+          
+            
+            <!-- Mentions légales -->
+            <div class="border-t border-gray-700 pt-4">
+                <p>&copy; 2024 Ma Boutique E-CHERICA en collaboration avec GEMINI. Tous droits réservés.</p>
+                <p>
+                    Développé avec passion par <a href="#" class="hover:text-blue-400">E-CHERICA Dev Team</a>.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>
